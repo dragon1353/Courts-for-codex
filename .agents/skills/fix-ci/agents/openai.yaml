@@ -1,0 +1,4 @@
+interface:
+  display_name: "Courts CI Fix"
+  short_description: "Diagnose and repair Courts CI failures with safe verification"
+  default_prompt: "Use $fix-ci to diagnose the failing CI checks and implement the smallest verified fix."

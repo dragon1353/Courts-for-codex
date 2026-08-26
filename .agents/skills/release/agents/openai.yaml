@@ -1,0 +1,4 @@
+interface:
+  display_name: "Courts Release"
+  short_description: "Audit Courts releases, notes, artifacts, and publishing risk"
+  default_prompt: "Use $release to audit release readiness for the requested tag or commit range."
