@@ -43,7 +43,7 @@
 - Preserve Flask endpoint payloads and status codes unless the requested change includes an API migration.
 - Preserve background-task state transitions and streamed response ordering when changing `app.py`, `rag_agent.py`, or `static/app.js`.
 - Avoid committing new generated datasets, model checkpoints, vector databases, PDF content, browser downloads, or bytecode.
-- Call out documentation drift: the README mentions Playwright, while the current downloader uses Selenium.
+- Verify that the downloader technology documented in the README matches `googledata.py`; report documentation drift only when they disagree.
 
 ## Code Review Rules
 

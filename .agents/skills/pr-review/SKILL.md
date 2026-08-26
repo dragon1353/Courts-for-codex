@@ -11,9 +11,10 @@ Perform an evidence-first review. Keep the review read-only unless the user expl
 
 1. Read `AGENTS.md` and preserve unrelated working-tree changes.
 2. Resolve the PR target from the supplied URL or number. Use an available GitHub connector or CLI only for read-only metadata, diffs, review threads, and checks.
-3. If no PR is supplied, review the current local diff against the merge base or the user-named base branch.
-4. If Git reports dubious ownership, use a per-command `-c safe.directory=<repo-root>` option. Do not modify global Git configuration.
-5. Record the base and head revisions, changed files, diff statistics, and available check results before judging the change.
+3. If a commit SHA, tag, or other revision is supplied without a PR, resolve that revision and compare it with the user-named base. When no base is named, compare it with its first parent, or with Git's empty tree when it is a root commit. Do not substitute the current working-tree diff.
+4. Only when neither a PR nor a revision is supplied, review the current local diff against the merge base or the user-named base branch.
+5. If Git reports dubious ownership, use a per-command `-c safe.directory=<repo-root>` option. Do not modify global Git configuration.
+6. Record the base and head revisions, changed files, diff statistics, and available check results before judging the change.
 
 ## Inspect the change
 

@@ -35,7 +35,7 @@ Do not include `dataset/`, `temp/`, PDFs, model checkpoints, vector databases, o
 
 1. Run `git diff --check` and parse Python without imports or bytecode writes.
 2. Run only locally available, relevant tests. Do not call Selenium, Ollama, training, ChromaDB rebuilding, or remote model downloads during a routine readiness audit.
-3. Verify that documented startup and dependency instructions match the code. Flag the current README Playwright/Selenium mismatch until corrected.
+3. Verify that documented startup, dependency, and downloader-technology instructions match the code. Report documentation drift only when the inspected revision actually disagrees with the implementation.
 4. Classify blockers, warnings, and accepted risks. Do not describe the release as ready when required checks were unavailable.
 
 ## Produce release materials
