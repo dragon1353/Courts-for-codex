@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PDF 分析工具 (桌面版)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>PDF 分析工具</h1>
+
+        <div class="date-range-selector">
+            <h2>指定下載判決書日期 (民國年)</h2>
+            <div class="date-inputs">
+                <div class="date-group">
+                    <label>從:</label>
+                    <input type="text" id="start_year" placeholder="年" value="114">
+                    <span>年</span>
+                    <input type="text" id="start_month" placeholder="月" value="01">
+                    <span>月</span>
+                    <input type="text" id="start_day" placeholder="日" value="01">
+                    <span>日</span>
+                </div>
+                <div class="date-separator">至</div>
+                <div class="date-group">
+                    <label>到:</label>
+                    <input type="text" id="end_year" placeholder="年" value="114">
+                    <span>年</span>
+                    <input type="text" id="end_month" placeholder="月" value="01">
+                    <span>月</span>
+                    <input type="text" id="end_day" placeholder="日" value="31">
+                    <span>日</span>
+                </div>
+                <div class="button-container">
+                    <button id="downloadPdfsBtn" class="btn">下載判決書PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-sections">
+            <div class="left-pane">
+                <h2>全庫知識問答 (RAG)</h2>
+                <div class="input-group">
+                    <label for="dialogInput">輸入您的法律問題：</label>
+                    <textarea id="dialogInput" class="dialog-input" placeholder="例如：以目前的資料庫來看，竊盜罪通常判多長的刑期？"
+                        style="height: 100px; font-size: 1.1em;"></textarea>
+                </div>
+                <div class="button-container">
+                    <button id="runAnalysisBtn" class="btn"
+                        style="background-color: #28a745; font-weight: bold; width: 100%;">送出問題 (智能檢索分析)</button>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 25px 0;">
+
+                <h3 style="color: #666; font-size: 1em; margin-bottom: 10px;">🔧 本地資料與模型同步</h3>
+                <div class="input-group">
+                    <label for="folderPathInput" style="font-size: 0.9em; color: #555;">指定 PDF 資料夾；系統會依序更新標註資料、統計資料、PyTorch 模型與 ChromaDB：</label>
+                    <div class="path-input-container">
+                        <input type="text" id="folderPathInput" placeholder="點擊右側按鈕選擇資料夾..." value="D:\\judicial_pdfs">
+                        <button id="selectPathBtn" class="btn btn-small">選擇</button>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button id="loadDataBtn" class="btn"
+                        style="width: 100%; background-color: #6c757d;">同步資料、訓練模型並重建索引</button>
+                </div>
+                <div id="status-box"
+                    style="margin-top: 20px; padding: 10px; background-color: #f8f9fa; border-radius: 5px; border-left: 4px solid #007bff;">
+                    狀態：閒置</div>
+            </div>
+            <div class="right-pane">
+                <h2>分析報告</h2>
+                <iframe id="reportPreview" class="report-preview"
+                    srcdoc="<p style='padding:20px; text-align:center; color:#666;'>報告將在此處顯示。</p>"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>

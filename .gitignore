@@ -1,0 +1,16 @@
+*.pdf
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+*.log
+
+# 本機生成或可能含判決全文的資料產物
+dataset/*.csv
+dataset/*.pth
+dataset/*.png
+dataset/chroma_db/
+dataset/chroma_db.backup/
+temp/
