@@ -1,0 +1,4 @@
+interface:
+  display_name: "Courts PR Review"
+  short_description: "Review Courts pull requests for defects and release risk"
+  default_prompt: "Use $pr-review to review the current pull request and report prioritized findings."
